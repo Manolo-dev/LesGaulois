@@ -5,24 +5,34 @@ public class Gaulois {
 		this.nom = nom;
 		this.force = force;
 	}
-	private String nom;
-	private int force;
-	private int effetPotion;
+	
 	public String getNom() {
 		return nom;
 	}
-	@Override
-	public String toString() {
-		return "Gaulois [nom=" + nom + ", force=" + force + ", effetPotion=" + effetPotion + "]";
+	
+	public void frapper(Romain romain) {
+		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+		romain.recevoirCoup(force / 3);
 	}
-	public String prendreParole() {
+	
+	private String prendreParole() {
 		return "Le gaulois " + nom + " : ";
 	}
-	private void frapper(Romain romain) {
-		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
-		romain.rece
+
+	public void parler(String texte) {
+		System.out.println(prendreParole() + "«" + texte + "»");
 	}
+	
 	public static void main(String[] args) {
-		
+		Gaulois asterix = new Gaulois("Asterix", 8);
+		System.out.println(asterix);
 	}
+	
+	private String nom;
+	private int force;
+	private int effetPotion;
+//	@Override
+//	public String toString() {
+//		return "Gaulois [nom=" + nom + ", force=" + force + ", effetPotion=" + effetPotion + "]";
+//	}
 }

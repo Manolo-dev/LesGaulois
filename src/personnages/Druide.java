@@ -1,5 +1,7 @@
 package personnages;
 
+import java.util.Random;
+
 public class Druide {
 	public Druide(String nom, int effetPotionMin, int effetPotionMax) {
 		this.nom = nom;
@@ -20,8 +22,32 @@ public class Druide {
 	private String prendreParole() {
 		return "Le druide " + nom + " : ";
 	}
+	
+	public void preparerPotion() {
+		Random rnd = new Random();
+		forcePotion = effetPotionMin + rnd.nextInt(effetPotionMax - effetPotionMin);
+		if(forcePotion > 7) {
+			parler("J'ai préparé une super potion de force : " + forcePotion);
+		} else {
+			parler("Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force: " + forcePotion);
+		}
+	}
+	
+	public void booster(Gaulois gaulois) {
+		if(gaulois.getNom() != "Obelix") {
+			gaulois.boirePotion(forcePotion);
+		} else {
+			parler("Non, Obelix !... Tu n'auras pas de potion magique !");
+		}
+	}
+	
+	public static void main(String[] args) {
+		Druide panoramix = new Druide("Panoramix", 5, 10);
+		panoramix.preparerPotion();
+	}
 
 	private String nom;
 	private int effetPotionMin;
 	private int effetPotionMax;
+	private int forcePotion = 1;
 }

@@ -1,6 +1,10 @@
-package personnages;
+package histoire;
 
 import java.util.Arrays;
+
+import personnages.Chef;
+import personnages.Druide;
+import personnages.Gaulois;
 
 public class Village {
 	public String getNom() {

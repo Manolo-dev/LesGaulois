@@ -1,4 +1,4 @@
-package histoire;
+package villagegaulois;
 
 import personnages.Druide;
 import personnages.Gaulois;

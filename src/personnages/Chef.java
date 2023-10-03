@@ -1,6 +1,6 @@
 package personnages;
 
-import histoire.Village;
+import villagegaulois.Village;
 
 public class Chef {
 	public Chef(String nom, int force, Village village) {

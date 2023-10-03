@@ -3,6 +3,7 @@ package personnages;
 public class Romain {
 	public Romain(String nom, int force) {
 		this.nom = nom;
+		assert force >= 0;
 		this.force = force;
 	}
 	
@@ -19,16 +20,19 @@ public class Romain {
 	}
 	
 	public void recevoirCoup(int forceCoup) {
+		assert force >= 0;
+		int forcebefore = force;
 		force -= forceCoup;
 		if(force > 0) {
 			parler("Aïe");
 		} else {
 			parler("J'abandonne...");
 		}
+		assert forcebefore > force;
 	}
 
 	public static void main(String[] args) {
-		Romain bonus = new Romain("Caius Bonus", 8);
+		Romain bonus = new Romain("Caius Bonus", 6);
 		System.out.println(bonus.prendreParole());
 		bonus.parler("Salut !");
 		bonus.recevoirCoup(10);

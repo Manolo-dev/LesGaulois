@@ -14,6 +14,10 @@ public class Village {
 		this.chef = chef;
 	}
 	
+	public void setDruide(Druide druide) {
+		this.druide = druide;
+	}
+	
 	public String getNom() {
 		return nom;
 	}
@@ -32,18 +36,19 @@ public class Village {
 		for(int i = 0; i < nbVillageois; i++) {
 			System.out.println("- " + villageois[i].getNom());
 		}
+		System.out.println("Et le spectaculaire druide : " + this.druide.getNom());
 	}
 	
 	public static void main(String[] args) {
 		Village village = new Village("Village des Irréductibles", 30);
-		//Gaulois gaulois = village.trouverHabitant(30);
+		// code<Gaulois gaulois = village.trouverHabitant(30);>
 		// Le villageois n°30 n'existe pas, il y a au max 30 villageois et leurs numéros commencent à 0, le dernier villageois est donc le n°29.
 		Chef abraracourcix = new Chef("Abraracourcix", 6, village);
 		village.setChef(abraracourcix);
 		Gaulois asterix = new Gaulois("Asterix", 8);
 		village.ajouterHabitant(asterix);
-		//Gaulois gaulois = village.trouverHabitant(1);
-		//System.out.println(gaulois);
+		// code<Gaulois gaulois = village.trouverHabitant(1);>
+		// code<System.out.println(gaulois);>
 		// null est afiché, LE GAULOIS n°1 N'EXISTE PAS ! ON UTILISE DES CARDINAUX !
 		Gaulois obelix = new Gaulois("Obelix", 25);
 		village.ajouterHabitant(obelix);
